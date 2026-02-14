@@ -317,6 +317,37 @@ async def get_all_transactions():
     transactions = await db.transactions.find({}, {"_id": 0}).sort("created_at", -1).to_list(500)
     return transactions
 
+@api_router.delete("/admin/customers/{customer_id}")
+async def delete_customer(customer_id: str):
+    """Delete a customer and their transactions"""
+    customer = await db.customers.find_one({"id": customer_id}, {"_id": 0})
+    
+    if not customer:
+        raise HTTPException(status_code=404, detail="Customer not found")
+    
+    # Delete customer's transactions
+    await db.transactions.delete_many({"customer_id": customer_id})
+    
+    # Delete customer
+    await db.customers.delete_one({"id": customer_id})
+    
+    return {"success": True, "message": f"Customer {customer['name']} deleted successfully"}
+
+@api_router.get("/admin/check-duplicate")
+async def check_duplicate(phone: str = None, email: str = None):
+    """Check if customer with phone/email already exists"""
+    query = []
+    if phone:
+        query.append({"phone": phone})
+    if email:
+        query.append({"email": email.lower()})
+    
+    if not query:
+        return {"exists": False}
+    
+    existing = await db.customers.find_one({"$or": query}, {"_id": 0})
+    return {"exists": bool(existing), "customer": existing if existing else None}
+
 # ============== Base Routes ==============
 
 @api_router.get("/")
