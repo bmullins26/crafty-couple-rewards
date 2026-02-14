@@ -1,0 +1,107 @@
+{
+  "project_name": "The Crafty Couple's Rewards",
+  "design_philosophy": {
+    "theme": "Handmade Luxury",
+    "core_concept": "A virtual black card experience for crafters. Dark, moody, but warm with burgundy and gold. Not corporate, but exclusive boutique.",
+    "emotional_goal": "Unlocking Treasure. Every punch feels like earning a gold coin.",
+    "visual_style": "Jewel & Luxury Archetype. Deep velvet backgrounds, metallic gold accents, and red rose motifs."
+  },
+  "typography": {
+    "font_families": {
+      "heading": "Playfair Display, serif",
+      "script": "Great Vibes, cursive",
+      "body": "Inter, sans-serif"
+    },
+    "usage_rules": {
+      "headings": "Use 'Playfair Display' for all main titles (h1, h2). Weight: 600 or 700. Tracking: tight.",
+      "accents": "Use 'Great Vibes' for 'Thank You', 'Welcome', 'Rewards' labels, and tier names (e.g., 'Gold Tier'). Size: 2x normal text.",
+      "body": "Use 'Inter' for all functional text, inputs, and data. Keep it crisp and legible.",
+      "admin_panel": "Strictly 'Inter' for the admin dashboard for maximum readability."
+    },
+    "installation": {
+      "google_fonts_url": "https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": {
+        "DEFAULT": "#8B0000",
+        "hover": "#A52A2A",
+        "foreground": "#FFFFFF",
+        "description": "Deep Burgundy/Red. Used for primary buttons (Sign Up, Redeem)."
+      },
+      "secondary": {
+        "DEFAULT": "#D4AF37",
+        "hover": "#FFD700",
+        "foreground": "#000000",
+        "description": "Metallic Gold. Used for progress bars, active icons, and 'Punch' stamps."
+      },
+      "background": {
+        "DEFAULT": "#0A0A0A",
+        "paper": "#121212",
+        "card": "#1A1A1A",
+        "description": "Deepest Black. Avoid pure #000000; use #0A0A0A for richness."
+      },
+      "text": {
+        "primary": "#F5F5DC",
+        "secondary": "#A1A1AA",
+        "muted": "#525252",
+        "description": "Cream/Beige (#F5F5DC) for text instead of white for a softer, vintage feel."
+      },
+      "status": {
+        "success": "#D4AF37",
+        "error": "#EF4444"
+      }
+    },
+    "gradients": {
+      "gold_dust": "linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #B8860B 100%)",
+      "velvet_dark": "radial-gradient(circle at center, #2C0505 0%, #0A0A0A 100%)"
+    }
+  },
+  "ui_components": {
+    "buttons": {
+      "primary": "bg-[#8B0000] hover:bg-[#A52A2A] text-white font-playfair tracking-wide rounded-sm shadow-[0_0_15px_rgba(139,0,0,0.4)] transition-all duration-300",
+      "secondary": "border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black font-playfair rounded-sm",
+      "ghost": "text-[#F5F5DC] hover:text-[#D4AF37] hover:bg-white/5 font-inter"
+    },
+    "cards": {
+      "glass": "bg-black/40 backdrop-blur-md border border-white/10 rounded-lg shadow-xl",
+      "gold_border": "border border-[#D4AF37]/30 bg-[#121212] relative overflow-hidden"
+    },
+    "inputs": {
+      "default": "bg-white/5 border-white/10 text-[#F5F5DC] placeholder:text-white/20 focus:border-[#D4AF37] focus:ring-[#D4AF37] rounded-md h-12"
+    }
+  },
+  "layout_strategies": {
+    "mobile": {
+      "container": "max-w-md mx-auto min-h-screen bg-[#0A0A0A] overflow-x-hidden relative shadow-2xl",
+      "padding": "px-6 py-8"
+    },
+    "desktop_admin": {
+      "grid": "grid grid-cols-1 md:grid-cols-12 gap-6",
+      "sidebar": "col-span-3 h-screen sticky top-0 bg-[#121212] border-r border-white/5",
+      "content": "col-span-9 p-8"
+    }
+  },
+  "special_effects": {
+    "gold_shimmer": "animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%]",
+    "stamp_animation": "animate-stamp scale-0 opacity-0 transition-all duration-300 ease-out",
+    "confetti": "Use canvas-confetti with colors ['#D4AF37', '#8B0000', '#FFFFFF'] for tier unlock."
+  },
+  "images": {
+    "logo_url": "https://customer-assets.emergentagent.com/job_punch-tracker-11/artifacts/g6kgcicq_logo_for_keychains.png",
+    "hero_bg": "https://images.unsplash.com/photo-1701685809665-ef937d3763a6?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "textures": {
+      "gold_glitter": "https://images.unsplash.com/photo-1639434035519-43787d1ec895?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "rose_accent": "https://images.unsplash.com/photo-1534864421787-600c7ae244ec?crop=entropy&cs=srgb&fm=jpg&q=85"
+    }
+  },
+  "universal_guidelines": [
+    "Always use 'data-testid' for interactive elements.",
+    "Do not use generic 'blue' links. Use Gold (#D4AF37) for links.",
+    "Ensure contrast ratios are met. The Cream text on Black bg is good, but watch out for Dark Red backgrounds.",
+    "Use 'sonner' for toasts. Style them with black background and gold border.",
+    "Admin panel must have a PIN pad component, not just a text input."
+  ],
+  "instructions_to_main_agent": "1. Install 'lucide-react' for icons. 2. Create a 'Layout' component that handles the background gradient. 3. Use the 'PunchCard' component as the hero of the Customer Dashboard. 4. Implementing the 'Stamp' effect is critical for user delight."
+}
