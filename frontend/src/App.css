@@ -1,34 +1,272 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* The Crafty Couple's Rewards - Custom Styles */
+
+.app-container {
+    min-height: 100vh;
+    background-color: #0A0A0A;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
+/* Logo styling */
+.logo-container {
+    position: relative;
+}
+
+.logo-container::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+    z-index: -1;
+    border-radius: 50%;
+}
+
+/* Punch card grid */
+.punch-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .punch-grid {
+        gap: 1rem;
     }
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
+/* Individual punch circle */
+.punch-circle {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.punch-circle.empty {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px dashed rgba(212, 175, 55, 0.3);
+}
+
+.punch-circle.filled {
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #B8860B 100%);
+    border: 2px solid #FFD700;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.punch-circle.milestone {
+    border-color: #8B0000;
+}
+
+.punch-circle.milestone.filled {
+    background: linear-gradient(135deg, #8B0000 0%, #A52A2A 100%);
+    border-color: #8B0000;
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
+}
+
+/* Progress bar styling */
+.progress-track {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #8B0000 0%, #D4AF37 100%);
+    border-radius: 6px;
+    transition: width 0.5s ease-out;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+/* Reward card styling */
+.reward-card {
+    background: rgba(26, 26, 26, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.reward-card:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+    transform: translateY(-2px);
+}
+
+.reward-card.available {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: #D4AF37;
+}
+
+/* Navigation styles */
+.nav-link {
+    color: #A1A1AA;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #D4AF37;
+}
+
+.nav-link.active {
+    color: #D4AF37;
+}
+
+/* Form input styling */
+.form-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #F5F5DC;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #D4AF37;
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+.form-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Button styles */
+.btn-primary {
+    background: #8B0000;
     color: white;
+    font-family: 'Playfair Display', serif;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.4);
 }
 
-.App-link {
-    color: #61dafb;
+.btn-primary:hover {
+    background: #A52A2A;
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.6);
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
+.btn-gold {
+    background: transparent;
+    color: #D4AF37;
+    border: 1px solid #D4AF37;
+    font-family: 'Playfair Display', serif;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    background: #D4AF37;
+    color: black;
+}
+
+/* Admin panel styling */
+.admin-sidebar {
+    background: #121212;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.admin-card {
+    background: #1A1A1A;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}
+
+/* Table styles */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    text-align: left;
+    padding: 1rem;
+    background: rgba(212, 175, 55, 0.1);
+    color: #D4AF37;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.data-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #F5F5DC;
+}
+
+.data-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Toast customization */
+[data-sonner-toast] {
+    background: #1A1A1A !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    color: #F5F5DC !important;
+}
+
+[data-sonner-toast][data-type="success"] {
+    border-color: #D4AF37 !important;
+}
+
+[data-sonner-toast][data-type="error"] {
+    border-color: #EF4444 !important;
+}
+
+/* Confetti container */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+    .punch-grid {
+        gap: 0.5rem;
     }
-    to {
-        transform: rotate(360deg);
+    
+    .reward-card {
+        padding: 1rem;
     }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.8); }
+}
+
+.pulse-gold {
+    animation: pulse-gold 2s infinite;
 }
