@@ -12,7 +12,7 @@ import { Gift, Star, Crown, Sparkles, Search, UserPlus, Shield } from "lucide-re
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
-const LOGO_URL = "https://customer-assets.emergentagent.com/job_punch-tracker-11/artifacts/g6kgcicq_logo_for_keychains.png";
+const LOGO_URL = "https://customer-assets.emergentagent.com/job_punch-tracker-11/artifacts/cxump35k_new%20logo.png";
 
 const LandingPage = () => {
   const navigate = useNavigate();
