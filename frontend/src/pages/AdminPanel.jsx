@@ -146,6 +146,23 @@ const AdminPanel = () => {
     }
   };
 
+  const handleDeleteCustomer = async () => {
+    if (!selectedCustomer) return;
+
+    setIsLoading(true);
+    try {
+      await axios.delete(`${API}/admin/customers/${selectedCustomer.id}`);
+      toast.success(`${selectedCustomer.name} has been removed`);
+      setSelectedCustomer(null);
+      setShowDeleteDialog(false);
+      fetchCustomers();
+    } catch (error) {
+      toast.error(error.response?.data?.detail || "Failed to delete customer");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const filteredCustomers = customers.filter(c => 
     c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     c.phone?.includes(searchQuery) ||
