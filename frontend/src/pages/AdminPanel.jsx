@@ -11,7 +11,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { 
   ArrowLeft, Search, Plus, Gift, Star, Crown, Users, 
-  DollarSign, Sparkles, Delete, Lock, Check, X
+  DollarSign, Sparkles, Delete, Lock, Check, X, Trash2
 } from "lucide-react";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
