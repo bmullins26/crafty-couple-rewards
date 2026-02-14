@@ -451,6 +451,17 @@ const AdminPanel = () => {
                     </Button>
                   )}
 
+                  {/* Delete Customer Button */}
+                  <Button
+                    onClick={() => setShowDeleteDialog(true)}
+                    variant="outline"
+                    className="w-full border-red-500/50 text-red-400 hover:bg-red-500/20 hover:text-red-300"
+                    data-testid="delete-customer-button"
+                  >
+                    <Trash2 className="w-4 h-4 mr-2" />
+                    Remove Customer
+                  </Button>
+
                   {/* Punch Progress Visual */}
                   <div className="pt-4">
                     <p className="text-sm text-[#A1A1AA] mb-2">Punch Progress</p>
