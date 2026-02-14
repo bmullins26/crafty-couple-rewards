@@ -609,6 +609,32 @@ const AdminPanel = () => {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Delete Customer Confirmation Dialog */}
+      <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
+        <AlertDialogContent className="bg-[#1A1A1A] border-red-500/30 text-[#F5F5DC]" data-testid="delete-dialog">
+          <AlertDialogHeader>
+            <AlertDialogTitle className="font-playfair text-xl text-red-400">Remove Customer</AlertDialogTitle>
+            <AlertDialogDescription className="text-[#A1A1AA]">
+              Are you sure you want to remove <span className="text-[#F5F5DC] font-semibold">{selectedCustomer?.name}</span>? 
+              This will delete all their punches and transaction history. This action cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel className="bg-white/10 border-white/20 text-[#F5F5DC] hover:bg-white/20">
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleDeleteCustomer}
+              disabled={isLoading}
+              className="bg-red-600 hover:bg-red-700 text-white"
+              data-testid="confirm-delete"
+            >
+              {isLoading ? "Removing..." : "Yes, Remove"}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
