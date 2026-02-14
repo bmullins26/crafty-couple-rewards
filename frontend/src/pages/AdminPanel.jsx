@@ -31,6 +31,7 @@ const AdminPanel = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showAddPunchDialog, setShowAddPunchDialog] = useState(false);
   const [showRedeemDialog, setShowRedeemDialog] = useState(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
   useEffect(() => {
     if (isAuthenticated) {
