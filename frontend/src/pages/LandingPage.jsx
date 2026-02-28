@@ -252,10 +252,20 @@ const LandingPage = () => {
         </Card>
 
         {/* Admin Link */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-8 flex flex-col items-center gap-3">
+          <a
+            href="https://facebook.com/thecraftycouple17"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#1877F2] hover:bg-[#166FE5] text-white rounded-lg font-medium transition-all"
+            data-testid="contact-us-button"
+          >
+            <Facebook className="w-5 h-5" />
+            Contact Us
+          </a>
           <button
             onClick={() => navigate('/admin')}
-            className="text-[#A1A1AA] hover:text-[#D4AF37] text-sm flex items-center justify-center gap-2 mx-auto transition-colors"
+            className="text-[#A1A1AA] hover:text-[#D4AF37] text-sm flex items-center justify-center gap-2 transition-colors"
             data-testid="admin-link"
           >
             <Shield className="w-4 h-4" />
