@@ -254,7 +254,7 @@ const LandingPage = () => {
         {/* Admin Link */}
         <div className="text-center mt-8 flex flex-col items-center gap-3">
           <a
-            href="https://facebook.com/thecraftycouple17"
+            href="https://www.facebook.com/TheCraftyCouple17/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#1877F2] hover:bg-[#166FE5] text-white rounded-lg font-medium transition-all"
